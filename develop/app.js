@@ -10,12 +10,35 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const allEmployee = [];
+const allEmployees = [];
 
+// function to write html
+function writeToFile(fileName, data) {
+  console.log(fileName, data);
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+  fs.writeFile(fileName, data, (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
+}
 
+//function to ask if the employee list is complete 
+//write's the file with the information
+function anotherUser() {
+  inquirer.prompt([{
+    type: "list",
+    name: "addAnother",
+    choices: ["Add another employee", "Finish"]
+  }]).then(addOne => {
+    if (addOne.addAnother === "Add another employee") {
+      promptUser();
+    } else {
+      writeToFile(outputPath, render(allEmployees));
+    }
+  });
+}
+
+//prompts employee questions
 function promptUser() {
   return inquirer.prompt([{
     type: "input",
@@ -24,7 +47,7 @@ function promptUser() {
   }, {
     type: "input",
     name: "id",
-    Message: "What is your ID number?"
+    message: "What is your ID number?"
   }, {
     type: "input",
     name: "email",
@@ -36,69 +59,57 @@ function promptUser() {
   }]).then(userInput => {
     switch (userInput.role) {
       case "Manager":
-        addManager();
+        addManager(userInput);
         break;
 
       case "Engineer":
-        addEngineer();
+        addEngineer(userInput);
         break;
 
       case "Intern":
-        addIntern();
+        addIntern(userInput);
         break;
     }
   })
 
-  function addManager() {
+  function addManager(baseInput) {
     inquirer.prompt([{
-
       type: "input",
       name: "number",
       message: "What is your office number?"
-    }])
+    }]).then(answers => {
+      const newManager = new Manager(baseInput.name, baseInput.id, baseInput.role, answers.number)
+      allEmployees.push(newManager);
+      anotherUser();
+    });
   }
 
-  function addIntern() {
+  function addIntern(baseInput) {
     inquirer.prompt([{
-
       type: "input",
       name: "school",
       message: "What school do you attend?"
-    }])
+    }]).then(answers => {
+      const newIntern = new Intern(baseInput.name, baseInput.id, baseInput.role, answers.school)
+      allEmployees.push(newIntern);
+      anotherUser();
+    });
   }
 
-  function addEngineer() {
+  function addEngineer(baseInput) {
     inquirer.prompt([{
-
       type: "input",
       name: "github",
       message: "What is your github username?"
-    }])
+    }]).then(answers => {
+      const newEngineer = new Engineer(baseInput.name, baseInput.id, baseInput.role, answers.github)
+      allEmployees.push(newEngineer);
+      anotherUser();
+    });
   }
 }
 
 promptUser();
-
-// // function to write html
-// function writeToFile(fileName, data) {
-//   console.log(fileName, data);
-
-//   fs.writeFile(fileName, data, (err) => {
-//     if (err) throw err;
-//     console.log('The file has been saved!');
-//   });
-//  }
-
-// // function to initialize program and html
-//  function init() {
-//     promptUser().then((answers) => {
-//     writeToFile("teamList.html", render(answers));
-//   });
-    
-// }
-
-// // function call to initialize program
-// init();
 
 
 
