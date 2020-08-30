@@ -27,8 +27,11 @@
 
    ## Installation: 
    The code for this application was written using resources on the internet and following along to class activities.<br>
-   Resources used include: <br>
-   www.stackoverflow.com, www.w3schools.com, https://nodejs.org/api/fs.html, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+  <b> Resources used include: </b><br>
+  • www.stackoverflow.com <br>
+  •www.w3schools.com <br>
+  •https://nodejs.org/api/fs.html <br>
+  •https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes <br>
    
    <hr>
    
