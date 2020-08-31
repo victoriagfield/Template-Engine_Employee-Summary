@@ -36,7 +36,8 @@
    <hr>
    
    ## Images:
-   
+![employeehw1](https://user-images.githubusercontent.com/66035385/91758221-a2af1f00-eb9d-11ea-90d5-864593411d7f.jpg)
+![employeehw2](https://user-images.githubusercontent.com/66035385/91758224-a347b580-eb9d-11ea-9028-d2fe79ec8b7d.jpg) 
 
 
 
