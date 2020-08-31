@@ -29,8 +29,8 @@ function anotherUser() {
     type: "list",
     name: "addAnother",
     choices: ["Add another employee", "Finish"]
-  }]).then(addOne => {
-    if (addOne.addAnother === "Add another employee") {
+  }]).then(addEmployee => {
+    if (addEmployee.addAnother === "Add another employee") {
       promptUser();
     } else {
       writeToFile(outputPath, render(allEmployees));
@@ -81,7 +81,7 @@ function promptUser() {
       message: "What is your office number?"
     }]).then(answers => {
       //new variable with manager input
-      const newManager = new Manager(baseInput.name, baseInput.id, baseInput.role, answers.number)
+      const newManager = new Manager(baseInput.name, baseInput.id, baseInput.email, answers.number)
       allEmployees.push(newManager);
       anotherUser();
     });
@@ -95,7 +95,7 @@ function promptUser() {
       message: "What school do you attend?"
     }]).then(answers => {
       //new variable with intern input
-      const newIntern = new Intern(baseInput.name, baseInput.id, baseInput.role, answers.school)
+      const newIntern = new Intern(baseInput.name, baseInput.id, baseInput.email, answers.school)
       allEmployees.push(newIntern);
       anotherUser();
     });
@@ -109,7 +109,7 @@ function promptUser() {
       message: "What is your github username?"
     }]).then(answers => {
       //new variable with engineer input
-      const newEngineer = new Engineer(baseInput.name, baseInput.id, baseInput.role, answers.github)
+      const newEngineer = new Engineer(baseInput.name, baseInput.id, baseInput.email, answers.github)
       allEmployees.push(newEngineer);
       anotherUser();
     });
