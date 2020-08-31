@@ -52,7 +52,8 @@
    ## Test: 
    This application is tested in the VSC terminal using node and creates an HTML page with the output
    
-  
+  ![employeeSummary](https://user-images.githubusercontent.com/66035385/91759667-09cdd300-eba0-11ea-89e2-5fd912d2e342.gif)
+
 
 
    <hr>
