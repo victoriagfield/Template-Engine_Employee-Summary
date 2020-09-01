@@ -14,7 +14,7 @@
   <hr>
 
   ## Description: 
-   A software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This application passes all unit test. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user.
+   A software engineering team generator command line application. The application will prompt the user for information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This application passes all unit test. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user.
  
 
    <hr>
@@ -51,7 +51,7 @@
 
    ## Test: 
    This application is tested in the VSC terminal using node and creates an HTML page with the output
-   
+  
    ![image](https://user-images.githubusercontent.com/66035385/91774686-64bef480-ebb7-11ea-81ec-14e36b6d6eb1.png)
   ![employeeSummary](https://user-images.githubusercontent.com/66035385/91759667-09cdd300-eba0-11ea-89e2-5fd912d2e342.gif)
 
